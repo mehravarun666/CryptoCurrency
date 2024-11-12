@@ -11,7 +11,7 @@ import SwiftUI
 struct CryCurConApp: App {
     var body: some Scene {
         WindowGroup {
-            PortfolioView()
+            ContentView()
         }
     }
 }

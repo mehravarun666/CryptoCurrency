@@ -29,9 +29,33 @@
 		BBDD70272CDF3B7000C02A4B /* CryCurConUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryCurConUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		BBAB5D3B2CE2519200FEFAAA /* Exceptions for "CryCurCon" folder in "CryCurCon" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				.swift,
+			);
+			target = BBDD700C2CDF3B7000C02A4B /* CryCurCon */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		BBAB5D3C2CE2519200FEFAAA /* Exceptions for "CryCurCon" folder in "Compile Sources" phase from "CryCurCon" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = BBDD70092CDF3B7000C02A4B /* Sources */;
+			membershipExceptions = (
+				.swift,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		BBDD700F2CDF3B7000C02A4B /* CryCurCon */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				BBAB5D3B2CE2519200FEFAAA /* Exceptions for "CryCurCon" folder in "CryCurCon" target */,
+				BBAB5D3C2CE2519200FEFAAA /* Exceptions for "CryCurCon" folder in "Compile Sources" phase from "CryCurCon" target */,
+			);
 			path = CryCurCon;
 			sourceTree = "<group>";
 		};

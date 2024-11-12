@@ -1,4 +1,9 @@
-// SearchView.swift
+//
+//  SearchView.swift
+//  CryCurCon
+//
+//  Created by Varun Mehra on 11/11/24.
+//
 
 import SwiftUI
 
