@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NotificationView: View {
     var body: some View {
-        Text("Check your notifications")
+        Text("Notifications")
             .font(.largeTitle)
             .padding()
     }
