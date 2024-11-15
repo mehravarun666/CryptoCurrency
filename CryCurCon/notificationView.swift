@@ -7,51 +7,103 @@
 
 import SwiftUI
 
+struct Notification: Identifiable {
+    let id = UUID()
+    let title: String
+    let message: String
+    let timestamp: String
+    let icon: String
+    let color: Color
+}
+
 struct NotificationView: View {
     // Sample notification data
-    var cryptoName: String = "Bitcoin"
-    var priceChange: Double = 5.0
-    var timestamp: String = "2 mins ago"
+    let notifications = [
+        Notification(
+            title: "Crypto Alert!",
+            message: "Bitcoin price has increased by 5.2%.",
+            timestamp: "2 mins ago",
+            icon: "bitcoinsign.circle.fill",
+            color: Color.orange
+        ),
+        Notification(
+            title: "Stock Alert!",
+            message: "Tesla shares have dropped by 3.4%.",
+            timestamp: "10 mins ago",
+            icon: "chart.line.downtrend.xyaxis",
+            color: Color.red
+        ),
+        Notification(
+            title: "Weather Update",
+            message: "Heavy rain expected tomorrow. Stay safe!",
+            timestamp: "1 hour ago",
+            icon: "cloud.rain.fill",
+            color: Color.blue
+        )
+    ]
+    
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 16) {
+                ForEach(notifications) { notification in
+                    NotificationCard(notification: notification)
+                }
+            }
+            .padding()
+        }
+        .background(Color.white.edgesIgnoringSafeArea(.all))
+    }
+}
+
+struct NotificationCard: View {
+    let notification: Notification
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            HStack {
-                Image(systemName: "bitcoinsign.circle.fill") // Cryptocurrency icon
+            HStack(alignment: .top) {
+                Image(systemName: notification.icon)
                     .font(.system(size: 40))
-                    .foregroundColor(.orange)
+                    .foregroundColor(notification.color)
+                    .padding(.trailing, 10)
                 
-                VStack(alignment: .leading) {
-                    Text("Crypto Alert!")
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(notification.title)
                         .font(.headline)
                         .foregroundColor(.white)
                     
-                    Text("\(cryptoName) price has \(priceChange > 0 ? "increased" : "decreased") by \(String(format: "%.1f", abs(priceChange)))%")
+                    Text(notification.message)
                         .font(.subheadline)
                         .foregroundColor(.white.opacity(0.9))
                 }
                 Spacer()
             }
             
-            Text(timestamp)
+            Text(notification.timestamp)
                 .font(.caption)
                 .foregroundColor(.white.opacity(0.7))
             
             Button(action: {
-                // Add action to dismiss or view more details
+                // Add action to handle "View Details"
             }) {
                 Text("View Details")
                     .font(.caption)
                     .foregroundColor(.white)
-                    .padding(5)
-                    .background(Color.blue)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 5)
+                    .background(Color.white.opacity(0.2))
                     .cornerRadius(5)
             }
         }
         .padding()
-        .background(priceChange > 0 ? Color.green : Color.red) // Green for increase, red for decrease
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: [notification.color.opacity(0.7), .black]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
         .cornerRadius(12)
-        .shadow(radius: 5)
-        .padding()
+        .shadow(color: notification.color.opacity(0.5), radius: 10, x: 0, y: 5)
     }
 }
 
@@ -59,8 +111,7 @@ struct NotificationView_Previews: PreviewProvider {
     static var previews: some View {
         NotificationView()
             .previewLayout(.sizeThatFits)
-            .padding()
-            .background(Color.black) // Background for better visibility in preview
     }
 }
+
 
