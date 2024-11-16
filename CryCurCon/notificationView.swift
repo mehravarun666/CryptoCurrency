@@ -44,7 +44,11 @@ struct NotificationView: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 16) {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("Notifications")
+                    .font(.system(size: 30))
+                    .foregroundColor(.black)
+                
                 ForEach(notifications) { notification in
                     NotificationCard(notification: notification)
                 }
@@ -83,7 +87,6 @@ struct NotificationCard: View {
                 .foregroundColor(.white.opacity(0.7))
             
             Button(action: {
-                // Add action to handle "View Details"
             }) {
                 Text("View Details")
                     .font(.caption)

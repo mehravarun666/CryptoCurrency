@@ -28,7 +28,7 @@ struct ProfileView: View {
                             .foregroundColor(.gray)
                     }
                     Spacer()
-                    Image(systemName: "bell.fill") // Notification icon
+                    Image(systemName: "gear") // Setting icon
                         .foregroundColor(.black)
                 }
                 .padding(.horizontal)
