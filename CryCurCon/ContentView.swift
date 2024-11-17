@@ -18,7 +18,7 @@ struct ContentView: View {
             case .search:
                 SearchView()
             case .plus:
-                Text("Add")
+                AddMoney()
             case .notification:
                 NotificationView()
             case .profile:
